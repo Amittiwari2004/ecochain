@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "ecochain_backend": {
+      "candid": "src/ecochain_backend/ecochain_backend.did",
+      "package": "ecochain_backend",
+      "type": "rust"
+    },
+    "ecochain_frontend": {
+      "dependencies": [
+        "ecochain_backend"
+      ],
+      "source": [
+        "src/ecochain_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "ecochain_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
