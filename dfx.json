@@ -1,25 +1,24 @@
 {
   "canisters": {
     "ecochain_backend": {
-      "candid": "src/ecochain_backend/ecochain_backend.did",
+      "type": "rust",
       "package": "ecochain_backend",
-      "type": "rust"
+      "candid": "src/ecochain_backend/ecochain_backend.did"
     },
     "ecochain_frontend": {
-      "dependencies": [
-        "ecochain_backend"
-      ],
+      "type": "assets",
       "source": [
         "src/ecochain_frontend/dist"
       ],
-      "type": "assets",
-      "workspace": "ecochain_frontend"
+      "dependencies": [
+        "ecochain_backend"
+      ]
     }
   },
   "defaults": {
     "build": {
-      "args": "",
-      "packtool": ""
+      "packtool": "",
+      "args": ""
     }
   },
   "output_env_file": ".env",
