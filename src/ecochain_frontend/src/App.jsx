@@ -1,39 +1,63 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import AppRoutes from "./routes/AppRoutes";
-import { useInternetIdentity } from "ic-use-internet-identity";
-import {useUserStore} from "./context/useUserStore";
-import { useEffect } from "react";
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom'; // Remove BrowserRouter from this import
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import ExploreData from './pages/ExploreData';
+import Profile from './pages/Profile';
+import SubmitData from './pages/SubmitData';
+
+import { useUserStore } from './context/useUserStore';
+import { initAuth } from './services/auth';
+import LoadingSpinner from './components/LoadingSpinner';
+import DaoDashboard from './pages/DaoDashboard';
+import NotFound from './pages/NotFound';
+import AuthWrapper from './components/AuthWrapper';
 
 const App = () => {
-  const { identity, login, logout, loginStatus } = useInternetIdentity();
-  const setUser = useUserStore((state) => state.setUser);
-  const setPrincipal = useUserStore((state) => state.setPrincipal);
+  const { isAuthenticated, isLoading, initializeAuth } = useUserStore();
 
   useEffect(() => {
-    if (identity) {
-      setPrincipal(identity.getPrincipal().toText());
-      setUser(identity);
-    } else {
-      setUser(null);
-    }
-  }, [identity, setPrincipal, setUser]);
+    const init = async () => {
+      try {
+        await initAuth();
+        initializeAuth();
+      } catch (error) {
+        console.error('Failed to initialize auth:', error);
+      }
+    };
+    init();
+  }, [initializeAuth]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900 flex items-center justify-center">
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-900 text-gray-200">
-      <Navbar
-        login={login}
-        logout={logout}
-        identity={identity}
-        loginStatus={loginStatus}
-      />
-
-      <main className="flex-grow container mx-auto px-4 py-6">
-        <AppRoutes />
-      </main>
-
-      <Footer />
+  <AuthWrapper>
+      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-green-900">
+      <div className="min-h-screen bg-black/20 backdrop-blur-sm">
+        <Navbar />
+        
+        <main className="container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/explore" element={<ExploreData />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/submit" element={<SubmitData />} />
+            <Route path="/dashboard" element={<DaoDashboard />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        
+        <Footer />
+      </div>
     </div>
+  </AuthWrapper>
   );
 };
 
