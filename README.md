@@ -1,43 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EcoChain - Blockchain-based Environmental Data Platform</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-      background-color: #f4f4f9;
-      color: #333;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      color: #2b6cb0;
-    }
-    .section {
-      margin-bottom: 40px;
-    }
-    .screenshots img {
-      max-width: 100%;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    .tech-stack ul, .features ul {
-      padding-left: 20px;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 60px;
-      color: #777;
-      font-size: 14px;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>🌱 EcoChain</h1>
+ <h1>🌱 EcoChain</h1>
   <p><strong>A blockchain-based environmental data platform built on the Internet Computer Protocol (ICP).</strong></p>
 
   <div class="section">
@@ -82,15 +43,7 @@
     </p>
   </div>
 
-  <div class="section">
-    <h2>📸 Screenshots</h2>
-    <div class="screenshots">
-      <!-- Replace src values with the actual image file names/paths -->
-      <img src="screenshot1.png" alt="EcoChain Dashboard" />
-      <img src="screenshot2.png" alt="User Submission Form" />
-      <img src="screenshot3.png" alt="Validator Panel" />
-    </div>
-  </div>
+ 
 
   <div class="section">
     <h2>📚 Key Learnings</h2>
@@ -108,4 +61,3 @@
   </div>
 
 </body>
-</html>
