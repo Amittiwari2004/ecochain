@@ -1,61 +1,111 @@
-# `ecochain`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoChain - Blockchain-based Environmental Data Platform</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #2b6cb0;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .screenshots img {
+      max-width: 100%;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .tech-stack ul, .features ul {
+      padding-left: 20px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 60px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
 
-Welcome to your new `ecochain` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+  <h1>🌱 EcoChain</h1>
+  <p><strong>A blockchain-based environmental data platform built on the Internet Computer Protocol (ICP).</strong></p>
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+  <div class="section">
+    <h2>🔍 Overview</h2>
+    <p>
+      EcoChain is a decentralized platform that allows users to submit environmental data such as carbon emissions and pollution levels.
+      The data is then verified by validators through an incentive model, and once validated, it becomes publicly accessible and tamper-proof on-chain.
+    </p>
+  </div>
 
-To learn more before you start working with `ecochain`, see the following documentation available online:
+  <div class="section">
+    <h2>🛠️ Tech Stack</h2>
+    <div class="tech-stack">
+      <ul>
+        <li><strong>Frontend:</strong> React + Vite</li>
+        <li><strong>Backend:</strong> Motoko & Rust (ICP Canisters)</li>
+        <li><strong>Authentication:</strong> Internet Identity (DFINITY)</li>
+        <li><strong>Deployment:</strong> Fully on-chain via DFINITY + ICP</li>
+      </ul>
+    </div>
+  </div>
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Rust Canister Development Guide](https://internetcomputer.org/docs/current/developer-docs/backend/rust/)
-- [ic-cdk](https://docs.rs/ic-cdk)
-- [ic-cdk-macros](https://docs.rs/ic-cdk-macros)
-- [Candid Introduction](https://internetcomputer.org/docs/current/developer-docs/backend/candid/)
+  <div class="section">
+    <h2>🚀 Key Features</h2>
+    <div class="features">
+      <ul>
+        <li>Users submit environmental data in a decentralized manner</li>
+        <li>Validators review and verify data before public listing</li>
+        <li>On-chain reward system for users and validators</li>
+        <li>Secure login with Internet Identity (no centralized auth)</li>
+        <li>All data and logic run on-chain via smart contracts</li>
+      </ul>
+    </div>
+  </div>
 
-If you want to start working on your project right away, you might want to try the following commands:
+  <div class="section">
+    <h2>👨‍💻 My Role</h2>
+    <p>
+      I worked as a <strong>Blockchain Developer Intern</strong> at Blockseblock and led the development of EcoChain.
+      I was responsible for designing and implementing the smart contract logic using Motoko and Rust, integrating Internet Identity,
+      building the frontend with React, and deploying the entire dApp using DFINITY’s Internet Computer Protocol.
+    </p>
+  </div>
 
-```bash
-cd ecochain/
-dfx help
-dfx canister --help
-```
+  <div class="section">
+    <h2>📸 Screenshots</h2>
+    <div class="screenshots">
+      <!-- Replace src values with the actual image file names/paths -->
+      <img src="screenshot1.png" alt="EcoChain Dashboard" />
+      <img src="screenshot2.png" alt="User Submission Form" />
+      <img src="screenshot3.png" alt="Validator Panel" />
+    </div>
+  </div>
 
-## Running the project locally
+  <div class="section">
+    <h2>📚 Key Learnings</h2>
+    <ul>
+      <li>Hands-on experience with Internet Computer Protocol and ICP canisters</li>
+      <li>Built decentralized authentication using Internet Identity</li>
+      <li>Implemented smart contracts using both Motoko and Rust</li>
+      <li>Learned how to structure full-stack Web3 dApps</li>
+      <li>Understood on-chain incentive systems and open data use cases</li>
+    </ul>
+  </div>
 
-If you want to test your project locally, you can use the following commands:
+  <div class="footer">
+    © 2025 Amit Tiwari | Project: EcoChain
+  </div>
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
-
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
-
-```bash
-npm run generate
-```
-
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
-
-If you are making frontend changes, you can start a development server with
-
-```bash
-npm start
-```
-
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+</body>
+</html>
